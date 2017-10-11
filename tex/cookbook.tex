@@ -1,0 +1,73 @@
+% Copyright (C) 2017 Jim Madge
+%This program is free software: you can redistribute it and/or modify
+%it under the terms of the GNU General Public License as published by
+%the Free Software Foundation, either version 3 of the License, or
+%(at your option) any later version.
+%
+%This program is distributed in the hope that it will be useful,
+%but WITHOUT ANY WARRANTY; without even the implied warranty of
+%MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%GNU General Public License for more details.
+%
+%You should have received a copy of the GNU General Public License
+%along with this program.  If not, see <https://www.gnu.org/licenses/>.
+%
+%Jim Madge, jmmadge@gmail.com
+\documentclass[a4paper,12pt]{article}
+\title{
+  My Recipe Book
+}
+\author{
+  Harry Lime
+}
+
+\usepackage{cookbook}
+
+%Typesetting for utf8 character
+\usepackage[utf8]{inputenc}
+
+%Fonts
+\usepackage{DejaVuSans}
+\renewcommand*\familydefault{\sfdefault}
+\usepackage[T1]{fontenc}
+
+\usepackage{lipsum}
+
+\begin{document}
+
+\maketitle
+
+\begin{recipex}
+  \title{Pasta with Feta and Tomatoes}
+  \intro{
+    This meal is fast and simple, but very tasty and filling.
+  }
+  \ingredients{
+    \component{Pasta}
+    \ingredientlist{
+      Pasta (Farfalle{,} Conchiglie or Fusilli),
+      Cherry Tomatoes,
+      Feta,
+      Basil,
+      Olive Oil
+    }
+    \component{Teryaki Sauce}
+    \ingredientlist{
+      Mirin,
+      Soy Sauce,
+      Sugar
+    }
+  }
+  \method{
+    \step Place the pasta in a pan of water with a little salt and bring to
+    boil.
+    \step While the pasta is cooking prepare the tomatoes and feta. Chop the
+    tomatoes into quarters and the feta into cubes of equal size.
+    \step When the pasta is al dente, drain the water and return the pasta to
+    the pan. Add the olive oil, feta, tomatoes and basil and put over a medium
+    heat. Stir and serve immediately when the feta has melted a little and is
+    coating the pasta.
+  }
+\end{recipex}
+
+\end{document}

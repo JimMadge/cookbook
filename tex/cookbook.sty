@@ -1,0 +1,151 @@
+% Copyright (C) 2017 Jim Madge
+%This program is free software: you can redistribute it and/or modify
+%it under the terms of the GNU General Public License as published by
+%the Free Software Foundation, either version 3 of the License, or
+%(at your option) any later version.
+%
+%This program is distributed in the hope that it will be useful,
+%but WITHOUT ANY WARRANTY; without even the implied warranty of
+%MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%GNU General Public License for more details.
+%
+%You should have received a copy of the GNU General Public License
+%along with this program.  If not, see <https://www.gnu.org/licenses/>.
+%
+%Jim Madge, jmmadge@gmail.com
+\ProvidesPackage{cookbook}[09/10/2017 A package for typesetting recipes]
+
+\RequirePackage{enumitem}
+\RequirePackage{lettrine}
+\RequirePackage{etoolbox}
+\RequirePackage[sc]{titlesec}
+\RequirePackage[dvipsnames]{xcolor}
+%Add:
+%units, perhaps with the siunitx package
+
+%Length definitions
+\newlength{\goldena}
+\setlength{\goldena}{0.618\textwidth}
+\newlength{\goldenb}
+\setlength{\goldenb}{0.382\textwidth}
+
+%Colour definitions
+\newcommand{\accentcolour}{RoyalBlue}
+
+%Step counter
+\newcounter{step}
+\setcounter{step}{0}
+
+%Recipe environment
+\newenvironment{recipex}{%
+  %begin recipe on a new page
+  \clearpage
+  %clear all elements
+  \cookbook@set@title{}
+  \cookbook@set@intro{}
+  \cookbook@set@ingredients{}
+  \cookbook@set@method{}
+  %define local macros
+  \let\title\cookbook@set@title
+  \let\intro\cookbook@set@intro
+  \let\ingredients\cookbook@set@ingredients
+  \let\method\cookbook@set@method
+}{%
+  \cookbook@elem@title
+  \cookbook@emptybox
+  \cookbook@elem@intro
+  \cookbook@elem@ingredients
+  \cookbook@elem@method
+}
+%To add:
+%Hint
+%Serve with
+%Infobox containing cooking and prep time, serving size
+
+%Internal macros
+
+%Recipe title
+\newcommand{\cookbook@set@title}[1]{%
+  \def\cookbook@elem@title{%
+    \begin{center}
+      {\color{\accentcolour}\rule{\textwidth}{5pt}}%
+      \vspace{0.5em}
+      {\bf\huge #1}
+      \vspace*{-\baselineskip}\vspace{0.5em}%
+      {\color{\accentcolour}\rule{\textwidth}{3pt}}
+    \end{center}
+  }
+}
+
+%Empty box for layout
+\newcommand{\cookbook@emptybox}{%
+  \begin{minipage}[t]{\goldenb}
+    \hfill
+  \end{minipage}%
+}
+
+%Introductory paragraph
+\newcommand{\cookbook@set@intro}[1]{%
+  \def\cookbook@elem@intro{%
+    \begin{minipage}[t]{\goldena}
+      #1
+    \end{minipage}\par
+    \vspace{15pt}
+  }
+}
+
+%Ingredients
+\newcommand{\cookbook@set@ingredients}[1]{%
+  \def\cookbook@elem@ingredients{%
+    \begin{minipage}[t]{\goldenb}
+      #1
+    \end{minipage}%
+  }
+}
+
+%Recipe component
+\newcommand{\component}[1]{%
+  {\bf #1 }%
+  \vspace*{-\parskip}
+}
+
+%Ingredient list
+\newcommand{\ingredientlist}[1]{%
+  \raggedright
+      \begin{itemize}[leftmargin=*,topsep=0em,noitemsep,label=\color{\accentcolour}\textbullet]
+    \renewcommand*{\do}[1]{\item ##1}
+    \docsvlist{#1}
+  \end{itemize}
+  \vspace{2em}
+}
+
+%Method
+\newcommand{\cookbook@set@method}[1]{%
+  \def\cookbook@elem@method{%
+    \let\step\cookbook@step
+    \begin{minipage}[t]{\goldena}
+      \vspace*{-1em}
+      #1
+    \end{minipage}
+  }
+  \setcounter{step}{0}
+}
+
+%Step numbers using lettrine
+\newcommand{\cookbook@step}{%
+  \vspace{1em}
+  \lettrine[%
+    lines=2,
+    depth=0,
+    lhang=0.,
+    loversize=0.1,
+    lraise=0.,
+    findent=0.25em,
+    nindent=0.0em,
+    slope=0em,
+  ]{%
+    \stepcounter{step}\textcolor{\accentcolour}\thestep
+  }{}%
+}
+
+\endinput
