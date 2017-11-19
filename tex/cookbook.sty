@@ -13,21 +13,24 @@
 %along with this program.  If not, see <https://www.gnu.org/licenses/>.
 %
 %Jim Madge, jmmadge@gmail.com
-\ProvidesPackage{cookbook}[09/10/2017 A package for typesetting recipes]
+\ProvidesPackage{cookbook}[19/11/2017 A package for typesetting recipes]
 
 \RequirePackage{enumitem}
 \RequirePackage{lettrine}
 \RequirePackage{etoolbox}
 \RequirePackage[sc]{titlesec}
 \RequirePackage[dvipsnames]{xcolor}
-%Add:
-%units, perhaps with the siunitx package
+\RequirePackage{cooking-units}
 
 %Length definitions
 \newlength{\goldena}
 \setlength{\goldena}{0.618\textwidth}
 \newlength{\goldenb}
 \setlength{\goldenb}{0.382\textwidth}
+
+%British spoon units
+\declarecookingunit[tsp]{tsp}
+\declarecookingunit[tbsp]{tbsp}
 
 %Colour definitions
 \newcommand{\accentcolour}{RoyalBlue}
