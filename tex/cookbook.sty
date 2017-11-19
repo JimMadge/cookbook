@@ -45,17 +45,19 @@
   \clearpage
   %clear all elements
   \cookbook@set@title{}
+  \cookbook@set@info{\hfill}
   \cookbook@set@intro{}
   \cookbook@set@ingredients{}
   \cookbook@set@method{}
   %define local macros
   \let\title\cookbook@set@title
+  \let\info\cookbook@set@info
   \let\intro\cookbook@set@intro
   \let\ingredients\cookbook@set@ingredients
   \let\method\cookbook@set@method
 }{%
   \cookbook@elem@title
-  \cookbook@emptybox
+  \cookbook@elem@info
   \cookbook@elem@intro
   \cookbook@elem@ingredients
   \cookbook@elem@method
@@ -63,9 +65,10 @@
 %To add:
 %Hint
 %Serve with
-%Infobox containing cooking and prep time, serving size
 
 %Internal macros
+%To add:
+%Macros for redefinition of Prep, Serve etc., colours and so on
 
 %Recipe title
 \newcommand{\cookbook@set@title}[1]{%
@@ -80,11 +83,26 @@
   }
 }
 
-%Empty box for layout
-\newcommand{\cookbook@emptybox}{%
-  \begin{minipage}[t]{\goldenb}
-    \hfill
-  \end{minipage}%
+%Info box
+\newcommand{\cookbook@set@info}[1]{%
+  \def\cookbook@elem@info{%
+    \begin{minipage}[t]{\goldenb}
+      \raggedright
+      #1
+    \end{minipage}%
+  }
+}
+
+\newcommand{\serves}[1]{%
+  {\bf Serves:} #1\\%
+}
+
+\newcommand{\preptime}[1]{%
+  {\bf Prep:} #1\\%
+}
+
+\newcommand{\cooktime}[1]{%
+  {\bf Cook:} #1\\%
 }
 
 %Introductory paragraph
