@@ -30,7 +30,12 @@
 }
 
 %Key value package options
+%Accent colour option
 \DeclareStringOption[RoyalBlue]{colour}
+%Put recipes in table of contents
+\DeclareBoolOption{toc}
+%Set section level at which recipes appear
+\DeclareStringOption[section]{recipelevel}
 \ProcessKeyvalOptions*
 
 %Length definitions
@@ -86,6 +91,10 @@
 %Recipe title
 \newcommand{\cookbook@set@title}[1]{%
   \def\cookbook@elem@title{%
+    \ifcookbook@option@toc
+      %add toc entry
+      \addcontentsline{toc}{\cookbook@option@recipelevel}{#1}
+    \fi
     \begin{center}
       {\color{\accentcolour}\rule{\textwidth}{5pt}}%
       \vspace{0.5em}
