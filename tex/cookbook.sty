@@ -18,9 +18,20 @@
 \RequirePackage{enumitem}
 \RequirePackage{lettrine}
 \RequirePackage{etoolbox}
+\RequirePackage{kvoptions}
 \RequirePackage[sc]{titlesec}
 \RequirePackage[dvipsnames]{xcolor}
 \RequirePackage{cooking-units}
+
+%Key value setup
+\SetupKeyvalOptions{%
+  family = cookbook,
+  prefix = cookbook@option@
+}
+
+%Key value package options
+\DeclareStringOption[RoyalBlue]{colour}
+\ProcessKeyvalOptions*
 
 %Length definitions
 %\newlength{\goldena}
@@ -35,7 +46,7 @@
 \declarecookingunit[tbsp]{tbsp}
 
 %Colour definitions
-\newcommand{\accentcolour}{RoyalBlue}
+\newcommand{\accentcolour}{\cookbook@option@colour}
 
 %Step counter
 \newcounter{step}
@@ -70,7 +81,7 @@
 
 %Internal macros
 %To add:
-%Macros for redefinition of Prep, Serve etc., colours and so on
+%Macros for redefinition of Prep, Serve etc..
 
 %Recipe title
 \newcommand{\cookbook@set@title}[1]{%
