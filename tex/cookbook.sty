@@ -19,6 +19,7 @@
 \RequirePackage{lettrine}
 \RequirePackage{etoolbox}
 \RequirePackage{kvoptions}
+\RequirePackage{xifthen}
 \RequirePackage[sc]{titlesec}
 \RequirePackage[dvipsnames]{xcolor}
 \RequirePackage{cooking-units}
@@ -89,16 +90,18 @@
 %Macros for redefinition of Prep, Serve etc..
 
 %Recipe title
-\newcommand{\cookbook@set@title}[1]{%
+\newcommand{\cookbook@set@title}[2][]{%
   \def\cookbook@elem@title{%
     \ifcookbook@option@toc
       %add toc entry
-      \addcontentsline{toc}{\cookbook@option@recipelevel}{#1}
+      \ifthenelse{\isempty{#1}}%
+      {\addcontentsline{toc}{\cookbook@option@recipelevel}{#2}}%
+      {\addcontentsline{toc}{\cookbook@option@recipelevel}{#1}}
     \fi
     \begin{center}
       {\color{\accentcolour}\rule{\textwidth}{5pt}}%
       \vspace{0.5em}
-      {\bf\huge #1}
+      {\bf\huge #2}
       \vspace*{-\baselineskip}\vspace{0.5em}%
       {\color{\accentcolour}\rule{\textwidth}{3pt}}
     \end{center}
