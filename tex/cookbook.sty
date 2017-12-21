@@ -67,21 +67,23 @@
   \cookbook@set@intro{}
   \cookbook@set@ingredients{}
   \cookbook@set@method{}
+  \cookbook@set@hint{}
   %define local macros
   \let\title\cookbook@set@title
   \let\info\cookbook@set@info
   \let\intro\cookbook@set@intro
   \let\ingredients\cookbook@set@ingredients
   \let\method\cookbook@set@method
+  \let\hint\cookbook@set@hint
 }{%
   \cookbook@elem@title
   \cookbook@elem@info
   \cookbook@elem@intro
   \cookbook@elem@ingredients
   \cookbook@elem@method
+  \cookbook@elem@hint
 }
 %To add:
-%Hint
 %Serve with
 
 %Internal macros
@@ -195,5 +197,21 @@
     \stepcounter{step}\textcolor{\accentcolour}\thestep
   }{}%
 }
+
+%Hint
+\newcommand{\cookbook@set@hint}[1]{%
+  \def\cookbook@elem@hint{%
+    \ifthenelse{\isempty{#1}}{}{%
+      \vspace{1em}\\
+      {\color{\accentcolour}\rule{\goldena}{1.5pt}}\\
+      \vspace{0.5em}
+      \begin{minipage}[t]{\goldena}
+        \raggedright
+        {\bf Hint:} #1
+      \end{minipage}
+    }
+  }
+}
+
 
 \endinput
