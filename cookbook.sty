@@ -183,6 +183,7 @@
 
 %Step numbers using lettrine
 \newcommand{\cookbook@step}{%
+  \stepcounter{step}
   \vspace{1em}
   \lettrine[%
     lines=2,
@@ -194,7 +195,7 @@
     nindent=0.0em,
     slope=0em,
   ]{%
-    \stepcounter{step}\textcolor{\accentcolour}\thestep
+    \textcolor{\accentcolour}\thestep
   }{}%
 }
 
