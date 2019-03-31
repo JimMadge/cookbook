@@ -14,24 +14,19 @@
 %
 %Jim Madge, jmmadge@gmail.com
 \documentclass[a4paper,12pt]{article}
-\title{
+\title{%
   My Recipe Book
 }
-\author{
+\author{%
   Harry Lime
 }
 
 \usepackage{cookbook}
 
-%Typesetting for utf8 character
-\usepackage[utf8]{inputenc}
-
 %Fonts
 \usepackage{DejaVuSans}
 \renewcommand*\familydefault{\sfdefault}
 \usepackage[T1]{fontenc}
-
-\usepackage{lipsum}
 
 \begin{document}
 
@@ -39,17 +34,17 @@
 
 \begin{recipe}
   \title{Pasta with Feta and Tomatoes}
-  \info{
+  \info{%
     \serves{2}
-    %\makes{2 bowls}
+    \makes{2 bowls}
     \preptime{\cunum{5}{min}}
     \cooktime{\cunum{15}{min}}
   }
-  \intro{
+  \intro{%
     This meal is fast and simple, but very tasty and filling.
   }
-  \ingredients{
-    \ingredientlist{
+  \ingredients{%
+    \ingredientlist{%
       Pasta (Farfalle{,} Conchiglie or Fusilli) \cunum{120}{g},
       Cherry Tomatoes \cunum{100}{g},
       Feta \cunum{100}{g},
@@ -57,7 +52,7 @@
       Olive Oil
     }
   }
-  \method{
+  \method{%
     \step Place the pasta in a pan of water with a little salt and bring to
     boil.
     \step While the pasta is cooking prepare the tomatoes and feta. Chop the
@@ -67,8 +62,8 @@
     heat. Stir and serve immediately when the feta has melted a little and is
     coating the pasta.
   }
-  \hint{
-    Hello World!
+  \hint{%
+    A helpful hint
   }
 \end{recipe}
 
