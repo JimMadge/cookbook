@@ -16,7 +16,7 @@ A LaTeX class for formatting recipes.
 
 ## Usage
 
-###Package options
+### Package options
 
 * color
 * toc
