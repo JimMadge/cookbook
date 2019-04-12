@@ -1,8 +1,8 @@
-#Cookbook
+# Cookbook
 
 A LaTeX class for formatting recipes.
 
-##Requirements
+## Requirements
 
 * LaTeX >= 2e
 * The following LaTeX packages
@@ -14,7 +14,7 @@ A LaTeX class for formatting recipes.
   * xcolor
   * cooking-units
 
-##Usage
+## Usage
 
 ###Package options
 
@@ -22,7 +22,7 @@ A LaTeX class for formatting recipes.
 * toc
 * recipelevel
 
-###Recipe environment
+### Recipe environment
 
 * info macro
   * serves macro
@@ -37,7 +37,7 @@ A LaTeX class for formatting recipes.
   * step macro (lettrine)
 * hint macro
 
-##Inspiration
+## Inspiration
 
 * xcookybooky Sven Harder https://ctan.org/pkg/xcookybooky
 * cuisine Ben Cohen https://ctan.org/pkg/cuisine
